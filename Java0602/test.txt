@@ -1,0 +1,6 @@
+hello
+1234
+itwill
+java
+안녕하세요
+출력테스트

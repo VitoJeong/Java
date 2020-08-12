@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<!-- 해당xml 파일은 beans에 대한 정보를 사용하는 파일 -->
+   <!-- 스프링(컨테이너) 시작할때 미리 정보를 가지고있는 객체 -->
+   <beans>
+     <bean id="personService" class="com.itwillbs.EX.PersonServiceImp">
+        <property name="name">
+          <value>아이티윌</value>
+        </property>
+        
+        <property name="age" value="20"/>
+     </bean>
+     
+     <bean id="personService1" class="com.itwillbs.EX.PersonServiceImp">
+       <constructor-arg>
+         <value>사용자1</value>
+       </constructor-arg>     
+     </bean>
+     
+     
+     <bean id="personService2" class="com.itwillbs.EX.PersonServiceImp">
+       <constructor-arg value="홍길동"/>
+       <constructor-arg value="33"/>      
+     
+     </bean>
+     
+     
+     
+     
+   
+   
+   </beans>
+
+
+
+
+
+

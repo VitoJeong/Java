@@ -1,0 +1,11 @@
+테이블 정보
+
+CREATE TABLE `javadb`.`customer` (
+  `idx` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `id` VARCHAR(45) NOT NULL,
+  `passwd` VARCHAR(45) NOT NULL,
+  `jumin` VARCHAR(14) NOT NULL,
+  PRIMARY KEY (`idx`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  UNIQUE INDEX `jumin_UNIQUE` (`jumin` ASC));

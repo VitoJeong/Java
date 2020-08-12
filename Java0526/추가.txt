@@ -1,0 +1,11 @@
+stmt -> 마지막에 쿼리를 실행할때 sql 구문을 가지고 실행
+
+pstmt ->      "        sql 구문 없이 실행가능
+
+   드라이버 로드
+   디비연결
+   SQL  - ? 
+  pstmt = con.pre ~ (sql);
+  
+  pstmt.setXXX() - 객체(자바빈)/테이블을 컬럼명
+    
