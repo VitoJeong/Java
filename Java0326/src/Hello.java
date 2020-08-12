@@ -12,6 +12,7 @@ public class Hello {
 		// ctrl + shift + f => 소스코드 정렬
 		// 코드 삭제 (1줄) ctrl + d
 		// ctrl + alr + 방향키 아래 => 코드라인 복사
+		// commit
 
 		// 자바코드
 		// 1. 실행문
