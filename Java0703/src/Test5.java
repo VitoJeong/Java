@@ -35,13 +35,13 @@ class FrameEx5 extends JFrame implements ActionListener {
 	JButton btnSend, btnCancel;
 
 	public FrameEx5() {
-
+		// commit_test
 		setTitle("JDBC 연결하기");
 
 		// 레이아웃 변경
 		setLayout(new GridLayout(5, 2));
-
-		/************************************************/
+		
+		/*************************************************/
 		// 이름 //
 		pName = new JPanel(new GridLayout(1, 2));
 		laName = new JLabel(" 이 름 : ");
