@@ -90,7 +90,7 @@ public class Test1 {
 		};
 		// System.out.println(arr2[3][2]);
 		System.out.println(arr2[3].length);
-		// -> 배열이름[위치].length : (2차원배열)해당 행의 길이를 측정
+		// -> 배열이름[위치].length : (2차원배열)해당 행의 길이(열 개수)를 측정
 	    System.out.println(arr2.length);
 	    // -> 배열이름.length : (2차원배열) 행의 개수를 측정
 	    

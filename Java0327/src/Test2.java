@@ -34,7 +34,7 @@ public class Test2 {
 		
 		char charValue = 'a';
 		System.out.println("문자형 데이터 값 : "+charValue);
-		
+		System.out.println("문자형 데이터 값을 숫자로 : "+(int)(charValue));
 		char charValue2 = 65;
 		System.out.println("문자형 데이터 값 : "+charValue2);
 		
@@ -74,7 +74,7 @@ public class Test2 {
 	// \n 줄바꿈  \t 여백 생성(tab) 
 	System.out.println("안녕하세요 \n 자바시간\t입니다.");
 	
-//    char chValue2='\\';
+//    char chValue2='\\'; -> 두번해야 \로 나타남
 //    char chValue2='\'';
     char chValue2='\"';
     System.out.println("이스케이프 문자 사용 : "+chValue2);

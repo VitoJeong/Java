@@ -18,7 +18,7 @@ public class Test2 {
 		//   조건식이 만족할때 실행할 문장
 		// }
 		// * 조건식이 true일 경우 항상 실행된다.
-		int num = -100;
+		int num = 100;
 		
 		if(num ==200){
 			System.out.println("num값은 100이다.");

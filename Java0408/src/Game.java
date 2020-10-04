@@ -6,7 +6,7 @@ public class Game {
 		System.out.println("준비");
 
 		for (int i = 10; i >= 0; i--) {
-			for (long j = 0; j < 10000000000L; j++);
+			for (long j = 0; j < 3000000000L; j++);
 			System.out.println(i);
 		}
 

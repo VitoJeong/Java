@@ -148,7 +148,7 @@ public class Test1 {
 		String name = null;
 		System.out.println((4<2) && (name.length()==4));
 		// System.out.println((4>2) && (name.length()==4));
-		// -> 실행 X. 에러발생
+		// -> 두번째 조건문은 실행 X. 에러발생
 		// => 논리 연산을 사용해서 효율적인 계산이 가능하다.
 		
 		// 비트 연산자 ( & | ^ ~ ) 

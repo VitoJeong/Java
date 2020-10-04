@@ -30,7 +30,7 @@ public class Test1 {
 			System.out.print(i + " ");
 			i += 2;
 		}
-		System.out.println("\n-----------------------------");
+		System.out.println("\n while은 조건식 먼저 --------");
 		// * while 반복문은 항상 조건문을 먼저 실행한다.
 		i = 1;
 		while (i++ <= 4) {
@@ -120,7 +120,7 @@ public class Test1 {
 		System.out.println("\n---------------------------");
 		
 		i = 0;
-		while(i++<=4);
+		while(++i<=4);
 		System.out.println(i + " ");
 		
 		System.out.println("\n---------------------------");
