@@ -21,6 +21,7 @@ class MemberCall{ // 멤버 : 변수 + 메서드
 	
 	int iv2 = cv;
 	// static int cv2 = iv; (x)
+	// -> 인스턴스 변수는 객체를 생성해야만 사용이가능해서
 	// static int cv2 = new MemberCall().iv;
 	// -> 가능하나, 사용하면 안됨.
 	
@@ -28,6 +29,7 @@ class MemberCall{ // 멤버 : 변수 + 메서드
 	
 	public static void Method01(){
 		// System.out.println("인스턴스 변수 :"+iv); (x)
+		// -> 클래스 메서드라 인스턴스 변수 사용불가(변수가 만들어져있지않아서)
 		System.out.println("클래스 변수 :"+cv); //(o)		
 	}
 	public void Method02(){
@@ -44,7 +46,7 @@ class MemberCall{ // 멤버 : 변수 + 메서드
 		Method02();
 	}
 	
-	// * 만약 객체 생성시 클래스 멤버를 인스턴스 멤버가 참조/호출 할경우 
+	// * 만약 객체 생성시 인스턴스 멤버가 클래스 멤버를 참조/호출 할경우 
 	//  클래스 설계를 잘못했는지 확인해본다.
 	
 	// * static

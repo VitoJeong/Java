@@ -1,6 +1,6 @@
 class TestMath {
-	// 속성X
-	// 동작3개
+	// 속성(변수)X
+	// 동작(기능,메서드)3개
 	// 절대값을 계산 동작 (int,double,long처리가능)
 	// => abs() 메서드 오버로딩 해서 사용
 	// => 객체 생성후 결과 테스트
@@ -115,7 +115,7 @@ public class Test3 {
 		long add(int a,long b) { return a+b; }
 		long add(long a,int b) { return a+b; }
 		=> 오버로딩 o
-		add(100,200); x => add(100L,200);
+		add(100,200); x => add(100,200L); / add(100L,200);
 		
 		
 		*/

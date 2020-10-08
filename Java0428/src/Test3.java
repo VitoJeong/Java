@@ -1,18 +1,18 @@
 public class Test3 {
 	int b = check(2);
-	static int a = check(1);
+	static int a = check(1); // 1
 	
 	public static int check(int i){
 		System.out.println("call "+i);
 		return 0;
 	}
-
+	
 	public static void main(String[] args) {
-		System.out.println("main() 호출");
-		Test3 t = new Test3();
-		System.out.println("b: "+t.b);
+		System.out.println("main() 호출"); //3
+		Test3 t = new Test3(); // 4 - 인스턴스 변수check(2)
+		System.out.println("b: "+t.b); // 5
 	}
-	static int c = check(3);
+	static int c = check(3); // 2
 }
 // 프로그램 실행 순서
 // 1. static 멤버변수/메서드가 가장 먼저 실행됨. (먼저 나온 순서대로 생성(위->아래))

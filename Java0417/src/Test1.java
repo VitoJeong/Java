@@ -1,5 +1,3 @@
-import javax.swing.plaf.synth.SynthScrollPaneUI;
-
 public class Test1 {
 	
 	// 메서드 선언 

@@ -94,7 +94,6 @@ public class Test2 {
 		Scanner scan = new Scanner(System.in);
 		
 
-
 	}
 
 }

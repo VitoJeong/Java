@@ -28,7 +28,8 @@ public class Test1 {
 		// => 컴파일시 static변수를 미리 저장해서 사용 
 		
 		//정보 a,b 출력
-		//System.out.println("a : "+StaticTest.a);
+		// System.out.println("a : "+StaticTest.a);
+		//  -> private 접근제어자라 사용불가
 		System.out.println("a : "+StaticTest.getA());
 		
 		//System.out.println("b : "+StaticTest.b); (x)
@@ -37,7 +38,7 @@ public class Test1 {
 		System.out.println("b : "+s.b);
 		
 		StaticTest s1 = new StaticTest();
-		//System.out.println("s1.a : "+StaticTest.a);
+		// System.out.println("s1.a : "+StaticTest.a);
 		//s1.a = 500;
 		s1.setA(500);
 		s1.b = 600;

@@ -56,8 +56,10 @@ public class Test2 {
 		
 		tt = new Today();
 		
+		// 해당객체의 값을 변경한 상태.
 		System.out.println("d ");
 		System.out.println(d.year+"/"+d.month+"/"+d.day);
+		// 변수에 새로운 객체를 생성해서 대입함.
 		System.out.println("tt ");
 		System.out.println(tt.year+"/"+tt.month+"/"+tt.day);
 		
