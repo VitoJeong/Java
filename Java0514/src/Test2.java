@@ -89,6 +89,7 @@ public class Test2 {
 	    Rect r1 = new Rect();
 	    Tria t1 = new Tria();
 	    
+	    // Shape타입으로 업캐스팅
 	    poly(c1);
 	    poly(r1);
 	    poly(t1);

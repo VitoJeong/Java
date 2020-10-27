@@ -21,6 +21,7 @@ abstract class MiddleClass extends ABSClass{
 class SUBMidClass extends MiddleClass{
 	@Override
 	public void method1() {
+		super.method1();
 		System.out.println("SUBMidClass_method1() 호출");
 	}
 	@Override
@@ -55,6 +56,19 @@ public class Test1 {
 		sub.method1();
 		sub.method2();
 		
+		SUBMidClass smc = new SUBMidClass();
+		
+		smc.method1();
+		smc.method2();
+		smc.Method3();
+		
+		System.out.println("MiddleClass");
+		MiddleClass mid = smc;
+		
+		mid.method1();
+		mid.method2();
+		mid.Method3();
+		// 오버라이딩이 우선
 		
 		
 		

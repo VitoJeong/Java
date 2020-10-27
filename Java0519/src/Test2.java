@@ -15,21 +15,21 @@ public class Test2 {
 		String str2 = new String("Hello");
 		
 		if(str1 == str2)
-			System.out.println("같다");
+			System.out.println("문자열객체 : 같다");
 		else 
-			System.out.println("다르다");
+			System.out.println("문자열객체 : 다르다");
 		
 		String str3 = "Hello";
 		String str4 = "Hello";
 
 		if(str3 == str4)
-			System.out.println("같다");
+			System.out.println("문자열상수 : 같다");
 		else 
-			System.out.println("다르다");
+			System.out.println("문자열상수 : 다르다");
 		
 		
 		System.out.println(str1.length());
-		System.out.println(str1.substring(2));
+		System.out.println(str1.substring(1));
 		System.out.println(str1.toUpperCase());
 		System.out.println(str1.toLowerCase());
 		System.out.println(str1.charAt(0));

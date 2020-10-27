@@ -9,12 +9,12 @@ public class Beta extends Alpha {
 		//Alpha a = new Beta();
 		Alpha a = new Alpha();
 		// => 실행시 예외 발생 
-		Beta b = (Beta) a;
+		// Beta b = (Beta) a;
 		// Beta b = a;
 		// => 컴파일에러 발생 (컴파일러처리후 실행동작이기 때문에 메모리에 대한 상황을 알수 없음)
 		
-		a.foo();
-		b.foo();
+		// a.foo();
+		// b.foo();
 		
 		/*1. Afoo Afoo
 		2. Afoo Bfoo
@@ -22,8 +22,14 @@ public class Beta extends Alpha {
 		4. Bfoo Bfoo
 		5. 컴파일에러
 		6. 실행시 예외 발생*/
-
 		
+		Alpha ab = new Beta();
+		ab.foo();
+		Beta bb = (Beta) ab;
+		
+		
+		bb.foo();
+		bb.foo();
 		
 		
 	}

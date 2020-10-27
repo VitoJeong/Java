@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class Test1 {
 
 	public static void main(String[] args) {
-		// Throwable(예외/에러의 최상위객체)
-		// / \
+		// 		Throwable(예외/에러의 최상위객체)
+		// 			/ 			\
 		// Exception(실행시 예외) Error (컴파일에러)
 		//
 		// ArithmeticException
@@ -87,9 +87,12 @@ public class Test1 {
 		}
 
 		/*
-		 * try ~ catch ~ finally 실행 1 - try 구문 진입 2 - try 예외 발생시 예외정보를 객체로 생성해서
-		 * 던짐. 3 - catch 구문에서 받아서 처리 (순차적으로 체크하면서 해당예외를 찾아감) 4 - 해당 예외에 맞는
-		 * 예외/에러처리 실행 5 - finally 구문을 실행
+		 * try ~ catch ~ finally 실행 
+		 * 1 - try 구문 진입 
+		 * 2 - try 예외 발생시 예외정보를 객체로 생성해서 던짐. 
+		 * 3 - catch 구문에서 받아서 처리 (순차적으로 체크하면서 해당예외를 찾아감) 
+		 * 4 - 해당 예외에 맞는 예외/에러처리 실행 
+		 * 5 - finally 구문을 실행
 		 */
 
 		// try ~ with구문 ( jdk7.0 이후 사용 가능 )
