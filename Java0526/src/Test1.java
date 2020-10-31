@@ -6,7 +6,7 @@ public class Test1 {
 
 	public static void main(String[] args) {
 		// List - Vector 클래스
-		Vector vec = new Vector(); // 공간의 크기 : 10
+		Vector vec = new Vector(); // 용량(공간의 크기) : 10
 		
 		System.out.println(" 백터의 크기 : "+vec.size());
 		System.out.println(" 백터의 용량 : "+vec.capacity());
@@ -18,11 +18,13 @@ public class Test1 {
 		System.out.println(" 백터의 용량 : "+vec.capacity());
 
 		vec.add(1000);
+		// 크기 11 -> 용량  10증가 (20)
 		System.out.println("------------------------------");
 		System.out.println(" 백터의 크기 : "+vec.size());
 		System.out.println(" 백터의 용량 : "+vec.capacity());
 		
 		System.out.println("---------------------------------");
+		// 처음 벡터의 용량 4 다음 부터 3 씩 증가 (4, 7, 10, 13 ...)
 		Vector vec2 = new Vector(4, 3);
 		
 		System.out.println(vec2.size());
@@ -33,9 +35,9 @@ public class Test1 {
 		System.out.println("---------------------------------");
 		System.out.println(vec2.size());
 		System.out.println(vec2.capacity());
-		
-		System.out.println(vec2);
+		System.out.println(vec2); // toString()
 		System.out.println("----------------------------------");
+		
 		// 벡터의 요소 출력
 	    System.out.println( vec2.firstElement());
 	    System.out.println( vec2.lastElement());
@@ -78,7 +80,8 @@ public class Test1 {
 		// 데이터 삽입
 		v.add(3.123);
 		System.out.println(v);
-		v.add(1	, 1.111);
+		
+		v.add(1	, 1.111); // 1번 인덱스 위치에 데이터 삽입
 		System.out.println(v);
 		v.add(6.1);
 		System.out.println(v);
@@ -88,7 +91,7 @@ public class Test1 {
 		
 		double searchData = 6.1;
 		int result = v.indexOf(searchData);
-		// indexOf(값) : 해당 값의 인덱스를 리턴, 없을경우 -1 리턴 
+		// indexOf(값) : 해당 값의 인덱스를 리턴, 없을경우 -1 리턴 (인덱스 중 최솟값리턴)
 		System.out.println("result : "+result);
 		
 		// searchData값이 있는지 없는지 판단해서 

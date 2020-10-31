@@ -35,13 +35,13 @@ public class Test2 {
 		set.add("넷");
 		set.add("five");
 		set.add(6);
-		set.add(6);
+		set.add(6); // 중복허용 X
 		System.out.println("요소의 개수 : " + set.size());
 
 		System.out.println(set);
 		System.out.println(set.toString());
 
-		System.out.println("---------------------------");
+		System.out.println("----------set.iterator----------");
 
 		// for (int i = 0; i < set.size(); i++) {
 		// System.out.println(i + "-" + set.get(i));
@@ -52,7 +52,8 @@ public class Test2 {
 		// * Collections 인터페이스에서 iterator()메서드 형태로 제공
 		// => Collection 인터페이스를 구현하는 모든 객체들은 iterator() 메서드를
 		// 모두사용 가능하다. (컬렉션들 사이에서 동일한 접근방법을 가지는 형태)
-
+		
+		// iterator() 메서드 형태로 사용
 		Iterator elements = set.iterator();
 
 		while (elements.hasNext()) {
@@ -75,12 +76,12 @@ public class Test2 {
 		System.out.println("요소의 개수 : " + arr.size());
 		System.out.println(arr);
 
-		System.out.println("---------------------------");
+		System.out.println("---------ArrayList---------");
 
 		for (int i = 0; i < arr.size(); i++) {
 			System.out.println(i + "-" + arr.get(i));
 		}
-		System.out.println("-------------------------------");
+		System.out.println("---------ArrayList.iterator------------");
 
 		// * 디자인 패턴 : Iterator 패턴
 		// * 컬렉션의 종류와 상관없이 동일한 형태의 접근을 할수있다.

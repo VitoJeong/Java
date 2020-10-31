@@ -12,7 +12,7 @@ class SubAdd implements AddInterface{
 		for(int i=1;i<=n;i++){
 			sum += i;
 		}
-		System.out.println(" 1~"+n+"까지의 합 : "+sum);
+		System.out.println("1 ~ "+n+"까지의 합 : "+sum);
 	}
 	@Override
 	public void add(int n, int m) {
@@ -68,11 +68,15 @@ class Sub extends Calculator{
 // 좌표의 값을 수정하는 메서드(한번에 2개의 좌표를 받아서 이동) move()
 class Point{
 	private int x,y;
+	
+	// 생성자 선언
 	public Point(){}
 	public Point(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
+	
+	// getter 선언
 	public int getX() {
 		return x;
 	}

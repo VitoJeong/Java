@@ -166,17 +166,21 @@ public class Test3 {
 		
 		System.out.println("------------------------------------");
 		
+		System.out.println("Shape타입 객체");
 		Shape s = new Shape();
 		s.draw();
 		
+		System.out.println("Circle타입 객체");
 		Circle cc = new Circle();
 		cc.draw();
 		cc.paint();
 		
+		System.out.println("Circle타입 객체를 Shape로 업캐스팅");
 		Shape ss = new Circle();
 		ss.draw();
 		// ss.paint(); 
 		
+		System.out.println("업캐스팅한 객체를 다운캐스팅");
 		Circle cs = (Circle)ss;
 		cs.paint();		
 		

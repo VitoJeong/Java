@@ -24,6 +24,7 @@ public class Test2 {
 		newStack.push("5-직업기초");
 		
 		System.out.println(newStack);
+		
 		while(!newStack.isEmpty()){ // 스텍에 값이 들어 있는경우
 			System.out.println(newStack.pop());
 		}
@@ -68,7 +69,7 @@ public class Test2 {
 		
 		System.out.println(map);
 		
-		String str = (String)map.get("포도"); // 사용시 다운캐스팅(String)
+		String str = (String)map.get("포도"); // 사용시 다운캐스팅(Object -> String)
 		System.out.println("결과 : "+str);
 		
 		
