@@ -37,6 +37,7 @@ public class Test1 {
 		// 오버로딩된 생성자 선언
 		
 		MyGeneric<String> mg = new MyGeneric<String>("Hello");
+		// mg.x = "Hello"
 		
 		System.out.println(mg.take());
 		System.out.println(mg.compare("hello"));

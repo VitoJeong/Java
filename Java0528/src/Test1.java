@@ -29,7 +29,7 @@ public class Test1 {
 		
 		Vector<? extends Object> vo;
 		// => Object 클래스의 하위 클래스타입은 형변환 가능하다.
-		vo = vs; // 업 캐스팅
+		vo = vs; // 업 캐스팅 (String -> Object)
 		
 		for(Object o :vo){
 			System.out.println(o);			

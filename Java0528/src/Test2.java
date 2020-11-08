@@ -77,13 +77,14 @@ public class Test2 {
 		vec.add("Good");
 		vec.add("Bad");
 		System.out.println("요소의 개수 : "+vec.size());
+		System.out.println("요소의 용량 : "+vec.capacity());
 		
 		// 1번 위치에 있는 요소의 값을 삭제
 		// 모든 요소 출력
 		vec.remove(1);
 		System.out.println(vec);
 		
-		// 1번 위치 "itwill" 값 추가 
+		// 1번 위치에 "itwill" 값 삽입
 		// 모든 요소 출력 
 		vec.add(1, "itwill");
 		System.out.println(vec);
@@ -106,20 +107,13 @@ public class Test2 {
 		
 		// 키보드 값으로 특정 사용자의 이름을 입력시 해당 나이를 출력
 		Scanner scan = new Scanner(System.in);
-		System.out.println("사용자 이름을 입력하시오 > ");
+		System.out.print("사용자 이름을 입력하시오 > ");
 		//String name = scan.next();
 		//System.out.println("사용자 이름 : "+name);
 		//System.out.println("사용자 나이 : "+member.get(name));
 		System.out.println("사용자 나이 : "+member.get(scan.next()));
 		
 		 
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		

@@ -18,8 +18,8 @@ public class Test6 {
 		int size = 0;
 		
 		//String InPath = "D:\\workspace_java6\\Java0602\\src\\Test1.java";
-		String InPath = "C:\\Users\\ITWILL\\Desktop\\duke.png";
-		String OutPath = "C:\\Users\\ITWILL\\Desktop\\duke_COPY.png";
+		String InPath = "C:\\Users\\ckdgh\\OneDrive\\Desktop\\면접.txt";
+		String OutPath = "C:\\Users\\ckdgh\\OneDrive\\Desktop\\면접_copy.txt";
 		InputStream fis = null;
 		OutputStream fos = null;
 		

@@ -35,7 +35,7 @@ public class Test4 {
 		System.out.println("-------------------------------------");
 		
 		//String path ="D:\\workspace_java6\\Java0602\\src\\Test1.java";
-		String path ="C:\\Users\\ITWILL\\Desktop\\Hello.java";
+		String path ="C:\\Users\\ckdgh\\OneDrive\\Desktop\\면접.txt";
 		
 		FileInputStream fis = new FileInputStream(path);
 		int data = 0;
