@@ -1,14 +1,19 @@
 package list.arraylist.implementation;
 
-import java.util.ArrayList;
 
 public class Instance {
 
 	public static void main(String[] args) {
 
-		ArrayList<Integer> numbers = new ArrayList<>();
+		ArrayList numbers = new ArrayList();
+		numbers.addLast(10);
+		numbers.addLast(20);
+		numbers.addLast(30);
+		numbers.addLast(40);
+		numbers.add(1, 15);
+		numbers.addFirst(5);
 		
-
+		System.out.println(numbers.toString());
 	}
 
 }
