@@ -33,19 +33,21 @@ public class ArrayList {
 
 	@Override
 	public String toString() {
-		String str = "";
-		str+="[";
+		String str = "[";
 		
 		for(int i=0;i<size;i++){
-			if(i==size-1){
-				str+=elementData[i].toString();
-				break;
+			str+=elementData[i].toString();
+			if(i<size-1){
+				str+=",";
 			}
-			str+=elementData[i].toString()+", ";
 		}
 		
 		str+="]";
 		return str;
+	}
+
+	public Object get(int i) {
+		return elementData[i];
 	}
 	
 	
