@@ -16,6 +16,8 @@ public class Instance {
 		System.out.println(numbers.get(1));
 		System.out.println(numbers.get(2));
 		System.out.println(numbers.get(3));
+		System.out.println(numbers.size());
+		System.out.println(numbers.indexOf(70));
 	}
 
 }
