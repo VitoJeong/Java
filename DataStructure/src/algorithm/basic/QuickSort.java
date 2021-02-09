@@ -13,42 +13,49 @@ public class QuickSort {
 		for(int i=0;i<arr.length;i++){
 			System.out.print(arr[i]+" ");
 		}
+		
+		// 퀵 정렬의 평균 시간 복잡도는 O(nlogn)
+		// 최악의 경우 -> 피벗을 잘못 설정할 경우 O(n^2)
 
 	}
 	
-	public static void quickSort(int[] data, int start, int end){
-		if(start >= end) {return;}
+	public static void quickSort(int[] arr, int start, int end){
+		System.out.println(start + "Reset");
+		if(start>=end) return; // 원소가 1개인 경우
 		
-		int key = start; // key -> Pivot
-		int i = start+1; // 왼쪽에서 이동하며 key 보다 큰 값을 찾기 위한 인덱스
-		int j = end; // 오른쪽에서 이동하며 작은 값을 찾기 위한 인덱스
+		int pivot = start;
+		int i = start+1; // 오른쪽으로 이동하며 pivot보다 큰 값을 찾기 위한 인덱스
+		int j = end; // 왼쪽으로 이동하며 pivot보다 작은 값을 찾기 위한 인덱스
 		int temp;
 		
-		// 엇갈릴때 까지 반복
-		while(i <= j){
-			while(i<= end && data[i] <= data[key]){ // 키 값보다 큰 값을 만날 때까지 오른쪽으로 이동
+		while(i <= j){ // 엇갈릴 때 까지 반복
+			while(i <= end && arr[i] <= arr[pivot]){
+			// pivot보다 큰 값의 인덱스를 구할 때까지
 				i++;
 			}
-			while(data[j] >= data[key] && j > start){
+			while(arr[j] >= arr[pivot] && j > start){
+			// pivot보다 작은 값의 인덱스를 구할 때까지
 				j--;
 			}
-			
-			if(i > j){ // 엇갈린 상태라면
-				// 키 값과 교체
-				temp = data[j];
-				data[j] = data[key];
-				data[key] = temp;
-			} else {
-				temp = data[i];
-				data[i] = data[j];
-				data[j] = temp;
+			if(i > j){ // 엇갈렷다면 pivot과 교체
+				System.out.println("i : " + i);
+				System.out.println("j : " + j);
+				temp = arr[j];
+				arr[j] = arr[pivot];
+				arr[pivot] = temp;
+			}else{
+				System.out.println("i : " + i);
+				System.out.println("j : " + j);
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
 			}
+			for(int a=0;a<arr.length;a++){
+				System.out.print(arr[a]+" ");
+			}
+			System.out.println();
 		}
-		
-		quickSort(data, start, j-1);
-		quickSort(data, j+1, end);
+		quickSort(arr, start, j-1);
+		quickSort(arr, j+1, end);
 	}
-	
-	// 퀵 정렬의 평균 시간 복잡도는 O(nlogn)
-	// 최악의 경우 -> 피벗을 잘못 설정할 경우 O(n^2)
 }
