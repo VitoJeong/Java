@@ -59,5 +59,8 @@ public class Main {
     	
     	quickSort(arr, start, j-1);
     	quickSort(arr, j+1, end);
+    	
+    	// 퀵정렬로 시간초과남 
+    	//  -> heap이나 merge로 풀어볼것
     }
 }
