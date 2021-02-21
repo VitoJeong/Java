@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class LottoMachine {
 	
@@ -12,10 +13,20 @@ public class LottoMachine {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.print("최근 5회중 3회 이상 나온 번호를 입력해주세요 >> ");
 		
-		int num1 = 0;
-		String temp = br.readLine();
-		
-		if(!temp.equals("") && temp!=null) num1 = Integer.parseInt(temp);
+		int[] nums = new int[5];
+
+		int a=0;
+		while(a<nums.length){
+			String temp = br.readLine();
+			if(temp.equals("") || temp==null) {break;}
+			else if(temp.matches("[+-]?\\d*(\\.\\d+)?")){
+				
+				if(!(0 < Integer.parseInt(temp) && Integer.parseInt(temp) <= 45)) {System.out.println("알맞은 숫자를 입력해주세요.");}
+				else {nums[a] = Integer.parseInt(temp);}
+			}
+			a++;
+		}
+//		if(!temp.equals("") && temp!=null) num1 = Integer.parseInt(temp);
 		
 		List<Byte> result = new ArrayList<>();
 		
@@ -26,7 +37,7 @@ public class LottoMachine {
 		
 		while(result.size()<7){
 			byte ball = (byte) (Math.random() * 45 + 1);
-			if(!result.contains(ball) && ball != num1) {result.add(ball);}
+			if(!result.contains(ball) && IntStream.of(nums).anyMatch(x -> x == ball)) {result.add(ball);}
 			else {
 				System.out.println("중복>,.<");
 			}
