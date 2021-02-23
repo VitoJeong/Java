@@ -1,8 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Comparator;
+import java.io.OutputStreamWriter;
 
 public class Baekjoon {
 
@@ -14,19 +13,19 @@ public class Baekjoon {
 		short[] cnt = new short[10001];
 		
 		for (int i = 0; i < a; i++) {
-			short num = Short.parseShort(br.readLine());
-			cnt[num]++;
+			cnt[Short.parseShort(br.readLine())]++;
 		}
 		
-		
+		br.close();
+		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < cnt.length; i++) {
 
-			while(cnt[i]!=0){
-				System.out.println(i);
+			while(cnt[i]>0){
+				sb.append(i).append("\n");
 				cnt[i]--;
 			}
 		}
-		
+		System.out.println(sb);
 	}
 
 
