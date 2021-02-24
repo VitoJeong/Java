@@ -12,10 +12,10 @@ public class UsingStack {
 		stack.pop();
 		stack.push(6);
 		stack.pop();
-		while(!stack.empty()){
+		while (!stack.empty()) {
 			System.out.println(stack.pop());
 		}
-		
+		// 스택(Stack) - 후입선출(LIFO) 구조
 
 	}
 
