@@ -37,6 +37,7 @@ public class UnionFind {
 	static void unionParent(int[] parent, int a, int b) {
 		a = getParent(parent, a);
 		b = getParent(parent, b);
+		// 더 작은 노드를 부모 노드로 저장
 		if (a < b)
 			parent[b] = a;
 		else
