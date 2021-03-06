@@ -4,26 +4,31 @@ import java.io.InputStreamReader;
 
 public class Tiling {
 
-	static int[] d = new int[1001];
+	static long[][] d = new long[1000001][2];
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		int n = Integer.parseInt(br.readLine());
-		
+
 		System.out.println(dp(n));
-		
+
 	}
 
-	static int dp(int n) {
+	static long dp(int n) {
 
-		if (n == 0 || n == 1)
-			return 1;
-		if (d[n] > 0)
-			return d[n];
-		
-		return d[n] = (dp(n-1) + dp(n-2)*2) % 10007;
+		d[0][0] = 0L;
+		d[1][0] = 2L;
+		d[2][0] = 7L;
+		d[2][1] = 1L;
+
+		for (int i = 3; i <= n; i++) {
+			d[i][1] = (d[i - 3][0] + d[i - 1][1]) % 1000000007;
+			d[i][0] = (2 * d[i - 1][0] + 3 * d[i - 2][0] + d[i][1] * 2) % 1000000007;
+		}
+
+		return d[n][0];
 	}
 
 }
