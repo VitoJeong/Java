@@ -63,6 +63,6 @@ public class PrimeNumber {
 			if(arr[i]!=0) System.out.print(i+" ");
 		}
 	}
-	//
+	// 에라토스테네스의 체(배열을 이용)
 
 }
