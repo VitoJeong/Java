@@ -74,12 +74,12 @@ public class Dijkstra {
 		input(Dijkstra.v);
 		dijkstra(k);
 		
-		for (int i = 0; i < distance.length; i++) {
-//			System.out.print(distance[i]+ " ");
+		for (int i = 1; i < distance.length; i++) {
+			System.out.print(distance[i]+ " ");
 		}
 		System.out.println();
-		for (int i = 0; i < distance.length; i++) {
-//			System.out.print(prev[i]+ " ");
+		for (int i = 1; i < distance.length; i++) {
+			System.out.print(prev[i]+ " ");
 		}
 	}
 
