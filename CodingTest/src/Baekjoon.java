@@ -21,36 +21,29 @@ public class Baekjoon {
 		// 차수
 		int inDegree[] = new int[n];
 		ArrayList<Integer> adj[] = new ArrayList[n];
-		int result[] = new int[n]; // 최소시간을 저장
-		int total[] = new int[n];
-		
+		int value[] = new int[n]; // 최소시간을 저장
+		int result[] = new int[n];
 		for (int i = 0; i < inDegree.length; i++) {
 			adj[i] = new ArrayList<Integer>();
 		}
 		
 		for (int i = 0; i < n; i++) {
 			st = new StringTokenizer(br.readLine(), " ");
-//			System.out.println(st);
 			int x = Integer.parseInt(st.nextToken());
-			result[i]=x;
+			value[i]=x;
 			while(true){
 				x = Integer.parseInt(st.nextToken())-1;
-				System.out.println(x);
 				if(x==-2)break;
 				inDegree[i]++;
 				adj[x].add(i);
 			}
 		}
 		
-//		for (int i = 0; i < result.length; i++) {
-//			System.out.println(result[i]); 
-//		}
-		
 		LinkedList<Integer> q = new LinkedList<>();
 		for (int i = 0; i < adj.length; i++) {
 			if(inDegree[i] == 0){
-				System.out.println("dd");
 				q.offer(i);
+				result[i] = value[i];
 				inDegree[i]--;
 			}
 		}
@@ -59,9 +52,7 @@ public class Baekjoon {
 			int x = q.poll();
 			for(int i=0;i<adj[x].size();i++){
 				int ne = adj[x].get(i);
-				System.out.println("ne : " + result[ne]);
-				result[ne] = Math.max(result[ne], result[x] + result[ne]); 
-				
+				result[ne] = Math.max(result[ne], result[x] + value[ne]); 
 				inDegree[ne]--;
 				if(inDegree[ne]==0){
 					q.offer(ne);
