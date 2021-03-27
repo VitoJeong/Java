@@ -11,12 +11,13 @@ import java.util.StringTokenizer;
 public class Baekjoon {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		// 1516 게임개발
+		// 1948 임계경로
 		// -> 위상정렬 사용(임계변수 사용)
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		StringTokenizer st;
 		
-		int n = Integer.parseInt(st.nextToken());
+		int n = Integer.parseInt(br.readLine());
+		int m = Integer.parseInt(br.readLine());
 	
 		// 차수
 		int inDegree[] = new int[n];
@@ -27,7 +28,7 @@ public class Baekjoon {
 			adj[i] = new ArrayList<Integer>();
 		}
 		
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < m; i++) {
 			st = new StringTokenizer(br.readLine(), " ");
 			int x = Integer.parseInt(st.nextToken());
 			value[i]=x;
