@@ -5,8 +5,8 @@ public class RabinKarp {
 	public static void main(String[] args){
 		
 		// 라빈 카프 알고리즘
-		// 해시값을 이용하는 문자열 매칭 알고리즘
-		// 시간복잡도 O(n)
+		// -> 해시값을 이용하는 문자열 매칭 알고리즘
+		// -> 시간복잡도 O(n)
 		String str = "abacaaba";
 
 		System.out.println(getHash(str));

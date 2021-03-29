@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -10,61 +11,62 @@ import java.util.StringTokenizer;
 
 public class Baekjoon {
 
+	static int n, m, result;
+	static int[] d;
+	static boolean[] v;
+	static List<Integer> arr[];
+	
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		// 1948 임계경로
-		// -> 위상정렬 사용(임계변수 사용)
+		// 2166
+		// -> 이분매칭(DFS 사용)
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		
-		int n = Integer.parseInt(br.readLine());
-		int m = Integer.parseInt(br.readLine());
-	
-		// 차수
-		int inDegree[] = new int[n];
-		ArrayList<Integer> adj[] = new ArrayList[n];
-		int value[] = new int[n]; // 최소시간을 저장
-		int result[] = new int[n];
-		for (int i = 0; i < inDegree.length; i++) {
-			adj[i] = new ArrayList<Integer>();
-		}
+		st = new StringTokenizer(br.readLine(), " ");
 		
-		for (int i = 0; i < m; i++) {
-			st = new StringTokenizer(br.readLine(), " ");
-			int x = Integer.parseInt(st.nextToken());
-			value[i]=x;
-			while(true){
-				x = Integer.parseInt(st.nextToken())-1;
-				if(x==-2)break;
-				inDegree[i]++;
-				adj[x].add(i);
-			}
-		}
-		
-		LinkedList<Integer> q = new LinkedList<>();
-		for (int i = 0; i < adj.length; i++) {
-			if(inDegree[i] == 0){
-				q.offer(i);
-				result[i] = value[i];
-				inDegree[i]--;
-			}
-		}
-		
-		while(!q.isEmpty()){
-			int x = q.poll();
-			for(int i=0;i<adj[x].size();i++){
-				int ne = adj[x].get(i);
-				result[ne] = Math.max(result[ne], result[x] + value[ne]); 
-				inDegree[ne]--;
-				if(inDegree[ne]==0){
-					q.offer(ne);
-				}
-			}
-		}
-		
-		for (int i = 0; i < result.length; i++) {
-			System.out.println(result[i]); 
-		}
-	}
+		n = Integer.parseInt(st.nextToken());
+		m = Integer.parseInt(st.nextToken());
 
+		// 축사가 어느 소에 배정되있는지 저장하는 배열
+		d = new int[m+1];
+		v = new boolean[n+1];
+		arr = new ArrayList[n+1];
+		
+		for (int i = 0; i <= n; i++) {
+			arr[i] = new ArrayList<Integer>();
+		}
+		for (int i = 1; i <= n; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			int expected = Integer.parseInt(st.nextToken());
+			for(int j = 0; j < expected; j++){
+				arr[i].add(Integer.parseInt(st.nextToken())-1);
+			}
+		}
+
+		result = 0;
+		for(int i = 1; i <= n; i++){
+			v = new boolean[m+1];
+			if(dfs(i)) result++;
+		}
+		
+		System.out.println(result);
+		
+	}
+	
+	static boolean dfs(int x){
+		
+		if(v[x]) return false;
+		v[x] = true;
+		
+		for(int i: arr[x]){
+			if(d[i] == 0 || dfs(d[i])){
+				d[i] = x;
+				return true;
+			}
+			
+		}
+		
+		return false;
+	}
 
 }
