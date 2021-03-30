@@ -11,18 +11,17 @@ import java.util.StringTokenizer;
 
 public class Baekjoon {
 
-	static int n, m, result;
-	static int[] d;
+	static int n, m, d[];
 	static boolean[] v;
 	static List<Integer> arr[];
 	
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		// 2166
+	public static void main(String[] args) throws Exception {
+		// 2188
 		// -> 이분매칭(DFS 사용)
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		
-		st = new StringTokenizer(br.readLine(), " ");
+		st = new StringTokenizer(br.readLine());
 		
 		n = Integer.parseInt(st.nextToken());
 		m = Integer.parseInt(st.nextToken());
@@ -32,18 +31,19 @@ public class Baekjoon {
 		v = new boolean[n+1];
 		arr = new ArrayList[n+1];
 		
-		for (int i = 0; i <= n; i++) {
+		for (int i = 1; i <= n; i++) {
 			arr[i] = new ArrayList<Integer>();
 		}
 		for (int i = 1; i <= n; i++) {
-			st = new StringTokenizer(br.readLine(), " ");
+			st = new StringTokenizer(br.readLine());
 			int expected = Integer.parseInt(st.nextToken());
-			for(int j = 0; j < expected; j++){
-				arr[i].add(Integer.parseInt(st.nextToken())-1);
+			while(expected-->0)
+			{
+				arr[i].add(Integer.parseInt(st.nextToken()));
 			}
 		}
 
-		result = 0;
+		int result = 0;
 		for(int i = 1; i <= n; i++){
 			v = new boolean[m+1];
 			if(dfs(i)) result++;
@@ -55,17 +55,21 @@ public class Baekjoon {
 	
 	static boolean dfs(int x){
 		
-		if(v[x]) return false;
-		v[x] = true;
-		
-		for(int i: arr[x]){
-			if(d[i] == 0 || dfs(d[i])){
-				d[i] = x;
-				return true;
+		for(int i = 0; i < arr[x].size(); i++){
+			
+			int w = arr[x].get(i);
+
+			if(!v[w])
+			{
+				v[w] = true;
+				
+				if(d[w] == 0 || dfs(d[w])){
+					d[w] = x;
+					return true;
+				}
 			}
 			
 		}
-		
 		return false;
 	}
 
