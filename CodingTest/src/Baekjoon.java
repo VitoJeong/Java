@@ -11,12 +11,13 @@ import java.util.StringTokenizer;
 
 public class Baekjoon {
 
-	static int n, m, d[];
+	static int n, d[];
+	static long stat[];
 	static boolean[] v;
 	static List<Integer> arr[];
 	
 	public static void main(String[] args) throws Exception {
-		// 2188
+		// 1671
 		// -> 이분매칭(DFS 사용)
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
@@ -24,10 +25,10 @@ public class Baekjoon {
 		st = new StringTokenizer(br.readLine());
 		
 		n = Integer.parseInt(st.nextToken());
-		m = Integer.parseInt(st.nextToken());
 
-		// 축사가 어느 소에 배정되있는지 저장하는 배열
-		d = new int[m+1];
+		// 일에 처리할 수 있는 직원을 배정
+		d = new int[n+1];
+		stat = new long[n+1];
 		v = new boolean[n+1];
 		arr = new ArrayList[n+1];
 		
@@ -36,38 +37,44 @@ public class Baekjoon {
 		}
 		for (int i = 1; i <= n; i++) {
 			st = new StringTokenizer(br.readLine());
-			int expected = Integer.parseInt(st.nextToken());
-			while(expected-->0)
-			{
-				arr[i].add(Integer.parseInt(st.nextToken()));
+			for (int j = 0; j < 3; j++) {
+				stat[i] += Integer.parseInt(st.nextToken());
 			}
 		}
 
 		int result = 0;
 		for(int i = 1; i <= n; i++){
-			v = new boolean[m+1];
+			v = new boolean[n+1];
 			if(dfs(i)) result++;
+//			if(k-->0)
+//			{
+//				v = new boolean[m+1];
+//				if(dfs(i)) result++;
+//			}
 		}
-		
 		System.out.println(result);
-		
 	}
+
 	
 	static boolean dfs(int x){
 		
-		for(int i = 0; i < arr[x].size(); i++){
+		for(int i = 1; i <= n; i++){
 			
-			int w = arr[x].get(i);
-
-			if(!v[w])
-			{
-				v[w] = true;
+			long w = stat[i];
+			
+			if(i>1 && (stat[i]>=stat[i])){
 				
-				if(d[w] == 0 || dfs(d[w])){
-					d[w] = x;
-					return true;
-				}
 			}
+
+//			if(!v[w])
+//			{
+//				v[w] = true;
+//				
+//				if(d[w] == 0 || dfs(d[w])){
+//					d[w] = x;
+//					return true;
+//				}
+//			}
 			
 		}
 		return false;
