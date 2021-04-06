@@ -7,13 +7,16 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 import java.util.StringTokenizer;
+import java.util.Vector;
 
 public class Baekjoon {
 
-	static int n, d[];
-	static boolean[] v;
-	static Shark[] sharks;
+	static int v, e, d[];
+	static boolean finished[], map[][];
+	static Stack<Integer> stack;
+	static Vector<Vector<Integer>> scc;
 	
 	public static void main(String[] args) throws Exception {
 		// 1671
@@ -23,87 +26,63 @@ public class Baekjoon {
 		
 		st = new StringTokenizer(br.readLine());
 		
-		n = Integer.parseInt(st.nextToken());
-
-		d = new int[n+1];
-		v = new boolean[n+1];
-		sharks = new Shark[n+1];
+		v = Integer.parseInt(st.nextToken());
+		e = Integer.parseInt(st.nextToken());
+		d = new int[v+1];
+		map = new boolean[v+1][v+1];
+		finished = new boolean[v+1];
+		stack = new Stack<>();
+		scc = new Vector<>();
 		
-		for (int i = 1; i <= n; i++) {
+		for (int i = 0; i < e; i++) {
 			st = new StringTokenizer(br.readLine());
-			int size = Integer.parseInt(st.nextToken());
-			int velocity = Integer.parseInt(st.nextToken());
-			int intelligence = Integer.parseInt(st.nextToken());
-			sharks[i] = new Shark(size, velocity, intelligence);
+			pushBack(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
 		}
-
-		int result = 0;
-		for(int i = 1; i <= n; i++){
-			for (int j = 0; j < 2; j++) {
-				
-				v = new boolean[n+1];
-				System.out.println("ooo"+ i);
-				if(dfs(i)) result++;
-			}
-		}
-		System.out.println(n-result);
-		for(int i = 1; i < d.length; i++){
-			System.out.println(d[i]);
-		}
-	}
-
-	
-	static boolean dfs(int x){
-
-		for (int i = 1; i < sharks.length; i++) {
-			
-			if(i != x){
-				
-				if(v[i]) continue;
-				
-				int compare = sharks[x].compareTo(sharks[i]);
-				
-				if((compare == 0 && x > i) || compare == 1){
-					v[i] = true;
-					if(d[i]==0 || dfs(d[i])){
-						System.out.printf("x : %d\n",x);
-						System.out.printf("i : %d\n",i);
-						System.out.println();
-						d[i] = x;
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-
-}
-
-class Shark implements Comparable<Shark>{
-	int size, velocity, intelligence;
-	
-	public Shark(int size, int velocity, int intelligence){
-		this.size = size;
-		this.velocity = velocity;
-		this.intelligence = intelligence;
-	}
-
-	@Override
-	public int compareTo(Shark shark) {
 		
-		if(this.size == shark.size && this.velocity == shark.velocity && this.intelligence == shark.intelligence)
-		{
-			return 0;
+		for (int i = 1; i <= v; i++) {
+			if(d[i] == 0) dfs(i);
 		}
-		else if(this.size >= shark.size && this.velocity >= shark.velocity && this.intelligence >= shark.intelligence)
-		{
-			return 1;
+
+		System.out.println(scc.size());
+	}
+	
+	public static void pushBack(int a, int b){
+		System.out.printf("a : %d, b : %d\n", a, b);
+		map[a][b] = true;
+	}
+	
+	public static int dfs(int x){
+		
+		d[x] = x;
+		stack.push(x);
+		
+		int parent = d[x];
+		for (int i = 1; i < map[x].length; i++) {
+			
+			if(map[x][i])
+			{
+				System.out.printf("==== x: %d / i : %d\n", x, i);
+			}
+			if(d[x]==0)	parent = Math.min(parent, dfs(i));
+			else if(!finished[i]) parent = Math.min(parent, d[i]);
 		}
-		else
-		{
-			return -1;
+		System.out.println(parent);
+		// 부모노드가 자신인 경우
+		if(parent == d[x]) {
+			
+			Vector<Integer> vector = new Vector<>();
+			while(!stack.isEmpty()){
+				int t = stack.pop();
+				vector.add(t);
+				System.out.println(t);
+				finished[t] = true;
+				if(t == x) break;
+			}
+			scc.add(vector);
 		}
+		
+		// 자신의 부모값을 반환
+		return parent;
 	}
 	
 }
