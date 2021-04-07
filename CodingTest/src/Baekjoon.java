@@ -4,6 +4,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -44,15 +46,16 @@ public class Baekjoon {
 		}
 
 		System.out.println(scc.size());
+
+		solve();
 	}
 	
 	public static void pushBack(int a, int b){
-		System.out.printf("a : %d, b : %d\n", a, b);
 		map[a][b] = true;
 	}
 	
 	public static int dfs(int x){
-		
+		if(x==0) return x;
 		d[x] = x;
 		stack.push(x);
 		
@@ -61,10 +64,9 @@ public class Baekjoon {
 			
 			if(map[x][i])
 			{
-				System.out.printf("==== x: %d / i : %d\n", x, i);
+				if(d[i]==0)	parent = Math.min(parent, dfs(i));
+				else if(!finished[i]) parent = Math.min(parent, d[i]);
 			}
-			if(d[x]==0)	parent = Math.min(parent, dfs(i));
-			else if(!finished[i]) parent = Math.min(parent, d[i]);
 		}
 		System.out.println(parent);
 		// 부모노드가 자신인 경우
@@ -74,7 +76,6 @@ public class Baekjoon {
 			while(!stack.isEmpty()){
 				int t = stack.pop();
 				vector.add(t);
-				System.out.println(t);
 				finished[t] = true;
 				if(t == x) break;
 			}
@@ -83,6 +84,29 @@ public class Baekjoon {
 		
 		// 자신의 부모값을 반환
 		return parent;
+	}
+	
+	static void solve() throws Exception {
+		for (int i = 1; i <= v; i++) {
+			if(d[i] == 0) dfs(i);
+		}
+		
+		for(int i = 0; i < scc.size(); i++){
+			Collections.sort(scc.get(i));
+		}
+		
+		Collections.sort(scc, new Comparator<Vector<Integer>>() {
+			@Override
+			public int compare(Vector<Integer> o1, Vector<Integer> o2) {
+				return Integer.compare(o1.get(0), o2.get(0));
+			}
+		});
+		
+		for(int i=0; i<scc.size(); i++){
+			scc.get(i).stream().forEach(el -> System.out.print(el+" "));
+			System.out.println("-1");
+		}
+		
 	}
 	
 }

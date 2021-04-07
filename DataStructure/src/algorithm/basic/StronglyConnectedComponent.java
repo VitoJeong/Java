@@ -73,7 +73,7 @@ public class StronglyConnectedComponent {
 				
 				if(node[i] == 0) parent = Math.min(parent, dfs(i)); // 방문하지 않은 이웃
 				else if(!finished[i]) parent = Math.min(parent, node[i]); // 처리중인 이웃
-				
+				System.out.println(parent);
 			}
 			
 		}
